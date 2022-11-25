@@ -9,12 +9,10 @@ import {
 } from "./components";
 
 function App() {
-  const [condition, setCondition] = useState({ Nav: true });
+  const [condition, setCondition] = useState({ SingleContainer: true });
 
   const Render = ({ children, when }: any) => {
-    console.log("children", children);
-    console.log("type", children.type);
-    return <>{when[children.type.name] && children}</>;
+    return <>{when[children.name] && children}</>;
   };
 
   return (
@@ -30,7 +28,12 @@ function App() {
               <SingleContainer />
             </Render>
             <button
-              onClick={() => setCondition((p) => ({ ...p, Nav: !p.Nav }))}
+              onClick={() =>
+                setCondition((p) => ({
+                  ...p,
+                  SingleContainer: !p.SingleContainer,
+                }))
+              }
             >
               Click
             </button>
