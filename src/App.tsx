@@ -9,6 +9,8 @@ import {
 } from "./components";
 
 function App() {
+  const Wrapper = ({ children }: any) => <div>{children}</div>;
+
   const [condition, setCondition] = useState({
     SingleContainer: true,
     MultipleContainer: true,
@@ -30,7 +32,9 @@ function App() {
             <SingleContainer /> */}
             <Render when={condition}>
               <SingleContainer />
-              <MultipleContainer />
+              <Wrapper>
+                <div>Hola</div>
+              </Wrapper>
             </Render>
             <button
               onClick={() =>
