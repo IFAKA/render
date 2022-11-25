@@ -6,13 +6,12 @@ import { Render } from "../Render";
 import { motion } from "framer-motion";
 
 const MultipleElements = () => {
-  const initConditions = {
-    Nav: true,
-    Body: true,
-    Footy: true,
-  };
+  const [condition1, setCondition1] = useState(true);
+  const [condition2, setCondition2] = useState(true);
+  const [condition3, setCondition3] = useState(true);
 
-  const [conditions, setConditions] = useState(initConditions);
+  const conditions = [condition1, condition2, condition3];
+
   return (
     <>
       <motion.div
@@ -46,19 +45,19 @@ const MultipleElements = () => {
       >
         <button
           className="flex-1 px-3 py-2 border-x border-x-slate-800 bg-slate-700 ease-in-out duration-200 hover:bg-slate-600"
-          onClick={() => setConditions((p) => ({ ...p, Nav: !p.Nav }))}
+          onClick={() => setCondition1((p) => !p)}
         >
           Nav
         </button>
         <button
           className="px-3 p-2 border-x border-x-slate-800 bg-slate-700 flex-1 ease-in-out duration-200  hover:bg-slate-600"
-          onClick={() => setConditions((p) => ({ ...p, Body: !p.Body }))}
+          onClick={() => setCondition2((p) => !p)}
         >
           Body
         </button>
         <button
           className="px-3 p-2 border-x border-x-slate-800 bg-slate-700 flex-1 ease-in-out duration-200 hover:bg-slate-600"
-          onClick={() => setConditions((p) => ({ ...p, Footy: !p.Footy }))}
+          onClick={() => setCondition3((p) => !p)}
         >
           Footy
         </button>

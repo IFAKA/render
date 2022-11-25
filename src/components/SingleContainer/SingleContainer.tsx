@@ -8,12 +8,8 @@ import { SingleElement } from "../SingleElement";
 const SingleContainer = () => {
   const [code, setCode] = useState(false);
 
-  const conditions = {
-    SingleElement: !code,
-    SingleCode: code,
-    RiCodeSSlashLine: !code,
-    RiLayout4Line: code,
-  };
+  const iconConditions = [!code, code];
+  const cardConditions = [!code, code];
 
   return (
     <motion.div
@@ -34,14 +30,14 @@ const SingleContainer = () => {
           className="p-2 flex justify-center items-center dark:bg-slate-700 dark:hover:bg-slate-600 rounded-full"
           onClick={() => setCode((p) => !p)}
         >
-          <Render when={conditions}>
+          <Render when={iconConditions}>
             <RiCodeSSlashLine />
             <RiLayout4Line />
           </Render>
         </button>
       </div>
       <AnimatePresence>
-        <Render when={conditions}>
+        <Render when={cardConditions}>
           <SingleElement />
           <SingleCode />
         </Render>
