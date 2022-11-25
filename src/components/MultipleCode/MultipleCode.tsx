@@ -17,7 +17,7 @@ const MultipleCode = () => {
     >
       <MDContainer>
         {
-          "```\nconst conditions = [\n  boolean\n  boolean\n  boolean\n}\n\n<Render when={conditions}>\n  <Nav />\n  <Body />\n  <Footer />\n</Render>\n```"
+          "```\nconst conditions = [\n  booleanForNav,\n  booleanForBody,\n  booleanForFooter\n}\n\n<Render when={conditions}>\n  <Nav />\n  <Body />\n  <Footer />\n</Render>\n```"
         }
       </MDContainer>
     </motion.div>

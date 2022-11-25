@@ -5,6 +5,10 @@ const Header = () => {
       <div>
         A clean way to render components without ternaries or early returns.
       </div>
+      <div>
+        For now you should create the conditions in the same order that the
+        components are placed.
+      </div>
       <span>It works with direct childrens. You can check the code </span>
       <a
         target="_blank"
