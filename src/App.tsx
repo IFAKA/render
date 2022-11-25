@@ -13,15 +13,13 @@ function App() {
     <div>{children}</div>
   );
 
-  const [condition, setCondition] = useState({
-    SingleContainer: true,
-    Wrapper: true,
-  });
+  const [condition1, setCondition1] = useState(true);
+  const [condition2, setCondition2] = useState(true);
+  const conditions = [condition1, condition2];
 
   const Render = ({ children, when }: any) => {
-    console.log(children);
     return (
-      <>{children.map((children: any) => when[children.key] && children)}</>
+      <>{children.map((children: any, i: number) => when[i] && children)}</>
     );
   };
 
@@ -34,32 +32,16 @@ function App() {
           <div className="w-full flex justify-around flex-wrap">
             {/* <MultipleContainer />
             <SingleContainer /> */}
-            <Render when={condition}>
+            <Render when={conditions}>
               <SingleContainer key={SingleContainer.name} />
               <Wrapper key={Wrapper.name}>
                 <div>Hola</div>
               </Wrapper>
             </Render>
-            <button
-              onClick={() =>
-                setCondition((p) => ({
-                  ...p,
-                  SingleContainer: !p.SingleContainer,
-                }))
-              }
-            >
-              Click
+            <button onClick={() => setCondition1((p) => !p)}>
+              SingleContainer
             </button>
-            <button
-              onClick={() =>
-                setCondition((p) => ({
-                  ...p,
-                  Wrapper: !p.Wrapper,
-                }))
-              }
-            >
-              Click
-            </button>
+            <button onClick={() => setCondition2((p) => !p)}>Wrapper</button>
           </div>
         </div>
       </div>
