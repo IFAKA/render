@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { RiCodeSSlashLine, RiLayout4Line } from "react-icons/ri";
 import { MultipleCode } from "../MultipleCode";
 import { MultipleElements } from "../MultipleElements";
@@ -8,15 +8,12 @@ import { Render } from "../Render";
 const MultipleContainer = () => {
   const [code, setCode] = useState(false);
 
-  const conditions = useMemo(
-    () => ({
-      MultipleElements: !code,
-      MultipleCode: code,
-      RiCodeSSlashLine: !code,
-      RiLayout4Line: code,
-    }),
-    [code]
-  );
+  const conditions = {
+    MultipleElements: !code,
+    MultipleCode: code,
+    RiCodeSSlashLine: !code,
+    RiLayout4Line: code,
+  };
 
   return (
     <motion.div
@@ -36,10 +33,10 @@ const MultipleContainer = () => {
           className="p-2 dark:bg-slate-700 dark:hover:bg-slate-600 hover:bg-slate-50 rounded-full"
           onClick={() => setCode((p) => !p)}
         >
-          <Render when={conditions}>
-            <RiCodeSSlashLine />
-            <RiLayout4Line />
-          </Render>
+          {/* <Render when={conditions}> */}
+          <RiCodeSSlashLine />
+          {/* <RiLayout4Line /> */}
+          {/* </Render> */}
         </button>
       </div>
       <AnimatePresence>
