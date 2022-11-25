@@ -35,15 +35,15 @@ const MultipleContainer = () => {
         >
           {/* <Render when={conditions}> */}
           <RiCodeSSlashLine />
-          {/* <RiLayout4Line /> */}
+          <RiLayout4Line />
           {/* </Render> */}
         </button>
       </div>
       <AnimatePresence>
-        <Render when={conditions}>
-          <MultipleElements />
-          <MultipleCode />
-        </Render>
+        {/* <Render when={conditions}> */}
+        <MultipleElements />
+        <MultipleCode />
+        {/* </Render> */}
       </AnimatePresence>
     </motion.div>
   );
