@@ -9,16 +9,20 @@ import {
 } from "./components";
 
 function App() {
-  const Wrapper = ({ children }: any) => <div>{children}</div>;
+  const Wrapper = ({ children }: { children: JSX.Element }) => (
+    <div>{children}</div>
+  );
 
   const [condition, setCondition] = useState({
     SingleContainer: true,
-    MultipleContainer: true,
+    Wrapper: true,
   });
 
   const Render = ({ children, when }: any) => {
     console.log(children);
-    return <>{when[children.name] && children}</>;
+    return (
+      <>{children.map((children: any) => when[children.key] && children)}</>
+    );
   };
 
   return (
@@ -31,8 +35,8 @@ function App() {
             {/* <MultipleContainer />
             <SingleContainer /> */}
             <Render when={condition}>
-              <SingleContainer />
-              <Wrapper>
+              <SingleContainer key={SingleContainer.name} />
+              <Wrapper key={Wrapper.name}>
                 <div>Hola</div>
               </Wrapper>
             </Render>
@@ -50,7 +54,7 @@ function App() {
               onClick={() =>
                 setCondition((p) => ({
                   ...p,
-                  MultipleContainer: !p.MultipleContainer,
+                  Wrapper: !p.Wrapper,
                 }))
               }
             >
