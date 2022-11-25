@@ -2,11 +2,22 @@ import {
   Footer,
   Header,
   MultipleContainer,
+  Nav,
   Navbar,
   SingleContainer,
 } from "./components";
 
 function App() {
+  const Render = ({ children, when }: any) => {
+    return (
+      <>
+        {Array.isArray(children) && typeof when !== "boolean"
+          ? children.map((children) => when[children.type.name] && children)
+          : when && children}
+      </>
+    );
+  };
+
   return (
     <>
       <Navbar />
@@ -16,6 +27,9 @@ function App() {
           <div className="w-full flex justify-around flex-wrap">
             <MultipleContainer />
             <SingleContainer />
+            <Render when={true}>
+              <Nav />
+            </Render>
           </div>
         </div>
       </div>
