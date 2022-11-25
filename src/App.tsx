@@ -12,7 +12,7 @@ function App() {
   const [condition, setCondition] = useState({ Nav: true });
 
   const Render = ({ children, when }: any) => {
-    return <>{when && children}</>;
+    return <>{when[children.type.name] && children}</>;
   };
 
   return (
