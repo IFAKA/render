@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Footer,
   Header,
@@ -8,6 +9,8 @@ import {
 } from "./components";
 
 function App() {
+  const [condition, setCondition] = useState(true);
+
   const Render = ({ children, when }: any) => {
     return <>{when && children}</>;
   };
@@ -21,9 +24,10 @@ function App() {
           <div className="w-full flex justify-around flex-wrap">
             <MultipleContainer />
             <SingleContainer />
-            <Render when={true}>
+            <Render when={condition}>
               <Nav />
             </Render>
+            <button onClick={() => setCondition((p) => !p)}>Click</button>
           </div>
         </div>
       </div>
