@@ -9,7 +9,7 @@ import {
 } from "./components";
 
 function App() {
-  const [condition, setCondition] = useState(true);
+  const [condition, setCondition] = useState({ Nav: true });
 
   const Render = ({ children, when }: any) => {
     return <>{when && children}</>;
@@ -27,7 +27,11 @@ function App() {
             <Render when={condition}>
               <Nav />
             </Render>
-            <button onClick={() => setCondition((p) => !p)}>Click</button>
+            <button
+              onClick={() => setCondition((p) => ({ ...p, Nav: !p.Nav }))}
+            >
+              Click
+            </button>
           </div>
         </div>
       </div>
