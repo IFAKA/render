@@ -1,4 +1,4 @@
 const Body = () => {
-  return <div>Body</div>;
+  return <div className="bg-slate-700 py-2">Body</div>;
 };
 export default Body;

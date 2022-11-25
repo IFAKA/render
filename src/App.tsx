@@ -1,36 +1,25 @@
-import { useState } from "react";
-import "./App.css";
-import { Body, Footer, Navbar, Render } from "./components";
+import {
+  Footer,
+  Header,
+  MultipleContainer,
+  Navbar,
+  SingleContainer,
+} from "./components";
 
 function App() {
-  const initConditions = {
-    Navbar: true,
-    Body: true,
-    Footer: true,
-  };
-
-  const [conditions, setConditions] = useState(initConditions);
-
   return (
     <>
-      <Render when={conditions}>
-        <Navbar />
-        <Body />
-        <Footer />
-      </Render>
-      <button
-        onClick={() => setConditions((p) => ({ ...p, Navbar: !p.Navbar }))}
-      >
-        Navbar
-      </button>
-      <button onClick={() => setConditions((p) => ({ ...p, Body: !p.Body }))}>
-        Body
-      </button>
-      <button
-        onClick={() => setConditions((p) => ({ ...p, Footer: !p.Footer }))}
-      >
-        Footer
-      </button>
+      <Navbar />
+      <div className="flex justify-center h-[calc(100vh-96px)] overflow-auto p-4">
+        <div className="max-w-2xl w-full flex flex-col items-center">
+          <Header />
+          <div className="w-full flex justify-around flex-wrap">
+            <MultipleContainer />
+            <SingleContainer />
+          </div>
+        </div>
+      </div>
+      <Footer />
     </>
   );
 }
