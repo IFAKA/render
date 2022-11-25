@@ -29,7 +29,7 @@ const MultipleContainer = () => {
     >
       <div className="flex items-center justify-between">
         <h2 className="font-demibold text-xl mr-4">Multiple Elements</h2>
-        <button
+        {/* <button
           className="p-2 dark:bg-slate-700 dark:hover:bg-slate-600 hover:bg-slate-50 rounded-full"
           onClick={() => setCode((p) => !p)}
         >
@@ -37,7 +37,7 @@ const MultipleContainer = () => {
             <RiCodeSSlashLine />
             <RiLayout4Line />
           </Render>
-        </button>
+        </button> */}
       </div>
       <AnimatePresence>
         <Render when={conditions}>
