@@ -9,9 +9,13 @@ import {
 } from "./components";
 
 function App() {
-  const [condition, setCondition] = useState({ SingleContainer: true });
+  const [condition, setCondition] = useState({
+    SingleContainer: true,
+    MultipleContainer: true,
+  });
 
   const Render = ({ children, when }: any) => {
+    console.log(children);
     return <>{when[children.name] && children}</>;
   };
 
@@ -22,16 +26,27 @@ function App() {
         <div className="max-w-2xl w-full flex flex-col items-center">
           <Header />
           <div className="w-full flex justify-around flex-wrap">
-            <MultipleContainer />
-            <SingleContainer />
+            {/* <MultipleContainer />
+            <SingleContainer /> */}
             <Render when={condition}>
               <SingleContainer />
+              <MultipleContainer />
             </Render>
             <button
               onClick={() =>
                 setCondition((p) => ({
                   ...p,
                   SingleContainer: !p.SingleContainer,
+                }))
+              }
+            >
+              Click
+            </button>
+            <button
+              onClick={() =>
+                setCondition((p) => ({
+                  ...p,
+                  MultipleContainer: !p.MultipleContainer,
                 }))
               }
             >
