@@ -4,14 +4,14 @@ interface conditionals {
 
 interface RenderProps {
   children: JSX.Element | JSX.Element[];
-  when: conditionals;
+  when: conditionals | boolean;
 }
 const Render = ({ children, when }: RenderProps) => {
   return (
     <>
-      {Array.isArray(children)
+      {Array.isArray(children) && typeof when !== "boolean"
         ? children.map((children) => when[children.type.name] && children)
-        : when[children.type.name] && children}
+        : when && children}
     </>
   );
 };
