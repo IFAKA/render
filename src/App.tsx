@@ -9,13 +9,7 @@ import {
 
 function App() {
   const Render = ({ children, when }: any) => {
-    return (
-      <>
-        {Array.isArray(children) && typeof when !== "boolean"
-          ? children.map((children) => when[children.type.name] && children)
-          : when && children}
-      </>
-    );
+    return <>{when && children}</>;
   };
 
   return (
