@@ -12,7 +12,7 @@ function App() {
   const [condition, setCondition] = useState({ Nav: true });
 
   const Render = ({ children, when }: any) => {
-    console.log(children.type);
+    console.log(children);
     return <>{when[children.type.name] && children}</>;
   };
 
@@ -26,7 +26,7 @@ function App() {
             <MultipleContainer />
             <SingleContainer />
             <Render when={condition}>
-              <Nav />
+              <SingleContainer />
             </Render>
             <button
               onClick={() => setCondition((p) => ({ ...p, Nav: !p.Nav }))}
