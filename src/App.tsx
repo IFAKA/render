@@ -12,7 +12,7 @@ function App() {
   const [condition, setCondition] = useState({ Nav: true });
 
   const Render = ({ children, when }: any) => {
-    console.log(children);
+    console.log(children.ype);
     return <>{when[children.type.name] && children}</>;
   };
 
