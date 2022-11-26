@@ -20,14 +20,14 @@ const SingleElement = () => {
           duration: 0.3,
         }}
       >
-        <div className="rounded-xl w-full overflow-hidden text-center">
+        <div className="border dark:border-none rounded-xl w-full overflow-hidden text-center">
           <Render when={condition}>
             <Body />
           </Render>
         </div>
       </motion.div>
       <motion.button
-        className="h-fit rounded-lg px-3 p-2 bg-slate-700 ease-in-out duration-200 hover:bg-slate-600"
+        className="h-fit border dark:border-none rounded-lg px-3 p-2 dark:bg-slate-700 ease-in-out duration-200 dark:hover:bg-slate-600 hover:bg-slate-50"
         onClick={() => setCondition((p) => !p)}
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}

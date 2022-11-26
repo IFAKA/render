@@ -12,7 +12,7 @@ const MultipleContainer = () => {
 
   return (
     <motion.div
-      className="p-4 my-2 sm:w-fit w-full rounded-xl bg-slate-800 flex flex-col justify-between"
+      className="p-4 my-2 sm:w-fit w-full rounded-xl border dark:border-none dark:bg-slate-800 flex flex-col justify-between"
       initial={{ opacity: 0, scale: 0.95, y: 20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{

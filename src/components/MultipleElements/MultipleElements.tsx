@@ -15,7 +15,7 @@ const MultipleElements = () => {
   return (
     <>
       <motion.div
-        className="rounded-lg overflow-hidden text-center my-4"
+        className="border dark:border-none rounded-lg overflow-hidden text-center my-4"
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{
@@ -32,7 +32,7 @@ const MultipleElements = () => {
         </Render>
       </motion.div>
       <motion.div
-        className="rounded-lg overflow-hidden flex h-fit"
+        className="rounded-lg overflow-hidden flex h-fit border dark:border-none dark:bg-slate-700"
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{
@@ -44,19 +44,19 @@ const MultipleElements = () => {
         }}
       >
         <button
-          className="flex-1 px-3 py-2 border-x border-x-slate-800 bg-slate-700 ease-in-out duration-200 hover:bg-slate-600"
+          className="flex-1 px-3 py-2 ease-in-out duration-200 hover:bg-slate-50 dark:hover:bg-slate-600"
           onClick={() => setCondition1((p) => !p)}
         >
           Nav
         </button>
         <button
-          className="px-3 p-2 border-x border-x-slate-800 bg-slate-700 flex-1 ease-in-out duration-200  hover:bg-slate-600"
+          className="flex-1 px-3 py-2 ease-in-out duration-200 hover:bg-slate-50 dark:hover:bg-slate-600 border-x dark:border-x-slate-800"
           onClick={() => setCondition2((p) => !p)}
         >
           Body
         </button>
         <button
-          className="px-3 p-2 border-x border-x-slate-800 bg-slate-700 flex-1 ease-in-out duration-200 hover:bg-slate-600"
+          className="flex-1 px-3 py-2 ease-in-out duration-200 hover:bg-slate-50 dark:hover:bg-slate-600"
           onClick={() => setCondition3((p) => !p)}
         >
           Footy
