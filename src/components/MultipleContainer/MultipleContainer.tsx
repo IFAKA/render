@@ -8,8 +8,7 @@ import { Render } from "../Render";
 const MultipleContainer = () => {
   const [code, setCode] = useState(false);
 
-  const iconConditions = [!code, code];
-  const cardConditions = [!code, code];
+  const conditions = [!code, code];
 
   return (
     <motion.div
@@ -29,14 +28,14 @@ const MultipleContainer = () => {
           className="p-2 dark:bg-slate-700 dark:hover:bg-slate-600 hover:bg-slate-50 rounded-full"
           onClick={() => setCode((p) => !p)}
         >
-          <Render when={iconConditions}>
+          <Render when={conditions}>
             <RiCodeSSlashLine />
             <RiLayout4Line />
           </Render>
         </button>
       </div>
       <AnimatePresence>
-        <Render when={cardConditions}>
+        <Render when={conditions}>
           <MultipleElements />
           <MultipleCode />
         </Render>
