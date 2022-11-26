@@ -5,10 +5,12 @@ import {
   Navbar,
   SingleContainer,
 } from "./components";
+import { ServiceWorkerModal } from "./config";
 
 function App() {
   return (
     <>
+      <ServiceWorkerModal />
       <Navbar />
       <div className="flex justify-center h-[calc(100vh-96px)] overflow-auto p-4">
         <div className="max-w-2xl w-full flex flex-col items-center">

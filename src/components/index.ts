@@ -3,6 +3,7 @@ export * from "./Footer";
 export * from "./Footy";
 export * from "./Header";
 export * from "./MDContainer";
+export * from "./Modal";
 export * from "./MultipleCode";
 export * from "./MultipleContainer";
 export * from "./MultipleElements";
