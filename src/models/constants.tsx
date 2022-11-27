@@ -12,5 +12,8 @@ export const contacts = [
     icon: <RiLinkedinBoxLine size={20} />,
   },
   { href: "mailto:me@faka.dev", icon: <RiMailLine size={20} /> },
-  { href: "/assets/FacundoArenasCV.pdf", icon: <RiFileUserLine size={20} /> },
+  {
+    href: "https://drive.google.com/file/d/1A6clkqL3yO0nqlxoGEhd9ZD7XCWaCl5B/view?usp=sharing",
+    icon: <RiFileUserLine size={20} />,
+  },
 ];
