@@ -12,5 +12,5 @@ export const contacts = [
     icon: <RiLinkedinBoxLine size={20} />,
   },
   { href: "mailto:me@faka.dev", icon: <RiMailLine size={20} /> },
-  { href: "/assets/Facundo Arenas CV.pdf", icon: <RiFileUserLine size={20} /> },
+  { href: "/assets/FacundoArenasCV.pdf", icon: <RiFileUserLine size={20} /> },
 ];
