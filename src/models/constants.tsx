@@ -13,7 +13,7 @@ export const contacts = [
   },
   { href: "mailto:me@faka.dev", icon: <RiMailLine size={20} /> },
   {
-    href: "https://drive.google.com/file/d/1A6clkqL3yO0nqlxoGEhd9ZD7XCWaCl5B/view?usp=sharing",
+    href: "https://docs.google.com/document/d/1LmdIIMoGstnywAwh2e8QXqMZ3YSmWmUENMMkO4nCvwc/edit?usp=sharing",
     icon: <RiFileUserLine size={20} />,
   },
 ];
