@@ -1,8 +1,11 @@
-import { isValidElement } from "react";
+import { isValidElement } from "react"
+import { ErrorWrapper } from "../ErrorWrapper"
 
 interface RenderProps {
-  children: JSX.Element | JSX.Element[];
-  when: boolean | boolean[];
+  children: JSX.Element | JSX.Element[]
+  when: boolean | boolean[]
+  error?: Error
+  loader?: JSX.Element
 }
 
 /**
@@ -29,26 +32,37 @@ interface RenderProps {
  * </Render>
  */
 
-const Render = ({ children, when }: RenderProps) => {
+const Render = ({ children, when, error, loader }: RenderProps) => {
   const MultipleElements =
     Array.isArray(children) &&
     children.every((children) => isValidElement(children)) &&
     Array.isArray(when) &&
-    when.every((condition) => typeof condition === "boolean");
-  const SingleElement = isValidElement(children) && typeof when === "boolean";
+    when.every((condition) => typeof condition === "boolean")
 
-  function error() {
-    throw new Error("Wrong parameters");
+  const SingleElement = isValidElement(children) && typeof when === "boolean"
+
+  const throwError = () => {
+    throw new (Error as ErrorConstructor)("Wrong parameters")
   }
 
   return (
     <>
-      {MultipleElements
-        ? children.map((child, i) => when[i] && child)
-        : SingleElement
-        ? when && children
-        : error()}
+      {error ? (
+        <ErrorWrapper error={error} />
+      ) : MultipleElements ? (
+        children.map((child, i) => when[i] && child)
+      ) : SingleElement ? (
+        when ? (
+          children
+        ) : isValidElement(loader) ? (
+          loader
+        ) : (
+          <></>
+        )
+      ) : (
+        throwError()
+      )}
     </>
-  );
-};
-export default Render;
+  )
+}
+export default Render

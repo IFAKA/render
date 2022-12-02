@@ -1,11 +1,14 @@
 import {
+  Card,
+  Code,
   Footer,
   Header,
-  MultipleContainer,
+  MultipleElements,
   Navbar,
-  SingleContainer,
+  SingleElement,
 } from "./components";
 import { ServiceWorkerModal } from "./config";
+import { MULTIPLE_JSX, SINGLE_JSX } from "./models";
 
 function App() {
   return (
@@ -16,8 +19,14 @@ function App() {
         <div className="max-w-2xl w-full flex flex-col items-center">
           <Header />
           <div className="w-full flex justify-around flex-wrap">
-            <MultipleContainer />
-            <SingleContainer />
+            <Card title="Multiple Elements">
+              <MultipleElements />
+              <Code>{MULTIPLE_JSX}</Code>
+            </Card>
+            <Card title="Single Element">
+              <SingleElement />
+              <Code>{SINGLE_JSX}</Code>
+            </Card>
           </div>
         </div>
       </div>

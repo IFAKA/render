@@ -1,7 +1,7 @@
 import { MDContainer } from "../MDContainer";
 import { motion } from "framer-motion";
 
-const MultipleCode = () => {
+const Code = ({ children }: { children: string }) => {
   return (
     <motion.div
       className="flex-1 mt-4 invert dark:invert-0"
@@ -15,12 +15,8 @@ const MultipleCode = () => {
         duration: 0.3,
       }}
     >
-      <MDContainer>
-        {
-          "```\nconst conditions = [\n  booleanForNav,\n  booleanForBody,\n  booleanForFooter\n}\n\n<Render when={conditions}>\n  <Nav />\n  <Body />\n  <Footer />\n</Render>\n```"
-        }
-      </MDContainer>
+      <MDContainer>{children}</MDContainer>
     </motion.div>
   );
 };
-export default MultipleCode;
+export default Code;

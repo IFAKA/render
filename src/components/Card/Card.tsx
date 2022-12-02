@@ -1,14 +1,18 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { RiCodeSSlashLine, RiLayout4Line } from "react-icons/ri";
-import { MultipleCode } from "../MultipleCode";
-import { MultipleElements } from "../MultipleElements";
 import { Render } from "../Render";
 
-const MultipleContainer = () => {
+const Card = ({
+  title,
+  children,
+}: {
+  title: string;
+  children: JSX.Element[];
+}) => {
   const [code, setCode] = useState(false);
 
-  const conditions = [!code, code];
+  const condition = [!code, code];
 
   return (
     <motion.div
@@ -20,27 +24,26 @@ const MultipleContainer = () => {
         stiffness: 300,
         damping: 25,
         duration: 0.2,
+        delay: 0.3,
       }}
     >
-      <div className="flex items-center justify-between">
-        <h2 className="font-demibold text-xl mr-4">Multiple Elements</h2>
+      <div className="flex items-center justify-between h-fit">
+        <h2 className="font-demibold text-xl mr-4">{title}</h2>
         <button
-          className="p-2 dark:bg-slate-700 dark:hover:bg-slate-600 hover:bg-slate-50 rounded-full"
+          className="p-2 flex justify-center items-center dark:bg-slate-700 dark:hover:bg-slate-600 rounded-full"
           onClick={() => setCode((p) => !p)}
         >
-          <Render when={conditions}>
+          <Render when={condition}>
             <RiCodeSSlashLine />
             <RiLayout4Line />
           </Render>
         </button>
       </div>
-      <AnimatePresence>
-        <Render when={conditions}>
-          <MultipleElements />
-          <MultipleCode />
-        </Render>
-      </AnimatePresence>
+      <Render when={condition}>
+        {children[0]}
+        {children[1]}
+      </Render>
     </motion.div>
   );
 };
-export default MultipleContainer;
+export default Card;

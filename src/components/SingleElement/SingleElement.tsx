@@ -10,7 +10,7 @@ const SingleElement = () => {
   return (
     <>
       <motion.div
-        className="flex-1 my-4 flex items-center"
+        className="border dark:border-none rounded-lg overflow-hidden text-center my-4"
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{
@@ -20,11 +20,9 @@ const SingleElement = () => {
           duration: 0.3,
         }}
       >
-        <div className="border dark:border-none rounded-xl w-full overflow-hidden text-center">
-          <Render when={condition}>
-            <Body />
-          </Render>
-        </div>
+        <Render when={condition}>
+          <Body />
+        </Render>
       </motion.div>
       <motion.button
         className="h-fit border dark:border-none rounded-lg px-3 p-2 dark:bg-slate-700 ease-in-out duration-200 dark:hover:bg-slate-600 hover:bg-slate-50"

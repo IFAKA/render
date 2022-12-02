@@ -17,3 +17,8 @@ export const contacts = [
     icon: <RiFileUserLine size={20} />,
   },
 ];
+
+export const SINGLE_JSX =
+  "```\nconst condition = boolean\n\n<Render when={condition}>\n  <Body />\n</Render>\n```";
+export const MULTIPLE_JSX =
+  "```\nconst conditions = [\n  booleanForNav,\n  booleanForBody,\n  booleanForFooter\n}\n\n<Render when={conditions}>\n  <Nav />\n  <Body />\n  <Footer />\n</Render>\n```";
