@@ -1,7 +1,7 @@
-import { Modal } from "@/components"
-import { useEffect } from "react"
-import { RiCheckboxCircleLine } from "react-icons/ri"
-import { useRegisterSW } from "virtual:pwa-register/react"
+import { Modal, Render } from "@/components";
+import { useEffect } from "react";
+import { RiCheckboxCircleLine } from "react-icons/ri";
+import { useRegisterSW } from "virtual:pwa-register/react";
 
 function ServiceWorkerModal() {
   const {
@@ -10,43 +10,37 @@ function ServiceWorkerModal() {
     updateServiceWorker,
   } = useRegisterSW({
     onRegistered(r) {
-      console.log("SW Registered: " + r)
+      console.log("SW Registered: " + r);
     },
     onRegisterError(error) {
-      console.log("SW registration error", error)
+      console.log("SW registration error", error);
     },
-  })
+  });
 
   const close = () => {
-    setOfflineReady(false)
-    setNeedRefresh(false)
-  }
+    setOfflineReady(false);
+    setNeedRefresh(false);
+  };
 
   useEffect(() => {
-    const timer = setTimeout(() => close(), 2000)
-    return () => clearTimeout(timer)
-  }, [offlineReady])
+    const timer = setTimeout(() => close(), 2000);
+    return () => clearTimeout(timer);
+  }, [offlineReady]);
+
+  useEffect(() => {
+    needRefresh && updateServiceWorker(true);
+  }, [needRefresh]);
 
   return (
-    <Modal renderWhen={offlineReady || needRefresh}>
-      {offlineReady ? (
+    <Render when={offlineReady}>
+      <Modal>
         <div className="flex items-center">
           <RiCheckboxCircleLine size={20} />
           <span className="ml-2">Available offline</span>
         </div>
-      ) : (
-        <span>New content available, click on reload button to update.</span>
-      )}
-      {needRefresh && (
-        <button
-          className="border px-3 py-2 rounded-xl"
-          onClick={() => updateServiceWorker(true)}
-        >
-          Reload
-        </button>
-      )}
-    </Modal>
-  )
+      </Modal>
+    </Render>
+  );
 }
 
-export default ServiceWorkerModal
+export default ServiceWorkerModal;
