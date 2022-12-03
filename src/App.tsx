@@ -5,12 +5,15 @@ import {
   Header,
   MultipleElements,
   Navbar,
+  Render,
   SingleElement,
 } from "./components";
 import { ServiceWorkerModal } from "./config";
 import { MULTIPLE_JSX, SINGLE_JSX } from "./models";
 
 function App() {
+  console.log(Render.name);
+  console.log(Render.toString());
   return (
     <>
       <ServiceWorkerModal />
